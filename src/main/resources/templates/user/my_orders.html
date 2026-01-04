@@ -1,0 +1,71 @@
+<section xmlns:th="http://www.thymeleaf.org"
+         th:replace="~{base::layout(~{::section})}">
+
+    <div class="container mt-5 p-5">
+        <div class="row">
+            <p class="text-center fs-3">My Orders</p>
+
+            <!-- Success Message -->
+            <div th:if="${session.succMsg}">
+                <p class="text-success fw-bold text-center">[[${session.succMsg}]]</p>
+            </div>
+
+            <!-- Error Message -->
+            <div th:if="${session.errorMsg}">
+                <p class="text-danger fw-bold text-center">[[${session.errorMsg}]]</p>
+            </div>
+
+            <div class="col-md-12">
+                <table class="table table-bordered card-sh">
+                    <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="o : ${orders}">
+                        <td th:text="${o.orderId}">OID</td>
+                        <td th:text="${o.orderDate}">Date</td>
+                        <td th:text="${o.product.title}">Product</td>
+
+                        <td>
+                            Qty: <span th:text="${o.quantity}"></span><br>
+                            Price: <span th:text="${o.price}"></span><br>
+                            Total:
+                            <span th:text="${o.quantity * o.price}"></span>
+                        </td>
+
+                        <td th:text="${o.status}">Status</td>
+
+                        <td>
+                            <a th:if="${o.status != 'Cancelled'}"
+                               th:href="@{'/user/update-status?id=' + ${o.id} + '&st=Cancelled'}"
+                               class="btn btn-sm btn-danger">
+                                Cancel
+                            </a>
+
+                            <button th:if="${o.status == 'Cancelled'}"
+                                    class="btn btn-sm btn-secondary" disabled>
+                                Cancelled
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${#lists.isEmpty(orders)}">
+                        <td colspan="6" class="text-center text-danger fs-5">
+                            No Orders Found
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>

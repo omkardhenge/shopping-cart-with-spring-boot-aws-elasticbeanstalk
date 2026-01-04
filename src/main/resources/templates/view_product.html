@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details | E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <section th:replace="~{base::layout(~{::section})}">
+        <div class="container mt-5 mb-5">
+            
+            <!-- Session Messages -->
+            <th:block th:if="${session.succMsg}">
+                <div class="alert alert-success text-center" role="alert">
+                    [[${session.succMsg}]]
+                </div>
+            </th:block>
+            <th:block th:if="${session.errorMsg}">
+                <div class="alert alert-danger text-center" role="alert">
+                    [[${session.errorMsg}]]
+                </div>
+            </th:block>
+
+            <!-- Product Details Row -->
+            <div class="row align-items-center">
+                <!-- Product Image -->
+                <div class="col-md-6 text-center mb-3">
+                    <img th:src="${product.image}" class="img-fluid" style="max-height: 400px;" alt="Product Image">
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <h3>[[${product.title}]]</h3>
+                    <p><span class="fw-bold">Description:</span><br>[[${product.description}]]</p>
+                    <p>
+                        <span class="fw-bold">Product Details:</span><br>
+                        Status: 
+                        <span th:if="${product.stock > 0}" class="badge bg-success">Available</span>
+                        <span th:unless="${product.stock > 0}" class="badge bg-warning">Out of Stock</span><br>
+                        Category: [[${product.category}]]<br>
+                        Policy: 7 Days Replacement & Return
+                    </p>
+                    <p class="fs-5 fw-bold">
+                        Price: <th:block th:utext="${@commnServiceImpl.rupeeSign()}"></th:block> [[${product.discountPrice}]] 
+                        <span class="fs-6 text-decoration-line-through text-secondary">[[${product.price}]]</span> 
+                        <span class="fs-6 text-success">[[${product.discount}]]% off</span>
+                    </p>
+
+                    <!-- Features -->
+                    <div class="row text-center mb-3">
+                        <div class="col-md-4 text-success">
+                            <i class="fas fa-money-bill-wave fa-2x"></i>
+                            <p>Cash On Delivery</p>
+                        </div>
+                        <div class="col-md-4 text-danger">
+                            <i class="fas fa-undo-alt fa-2x"></i>
+                            <p>Return Available</p>
+                        </div>
+                        <div class="col-md-4 text-primary">
+                            <i class="fas fa-truck-moving fa-2x"></i>
+                            <p>Free Shipping</p>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart / Out of Stock -->
+                    <div>
+                        <th:block th:if="${product.stock > 0}">
+                            <th:block th:if="${user == null}">
+                                <a href="/signin" class="btn btn-danger w-100">Add To Cart</a>
+                            </th:block>
+                            <th:block th:unless="${user == null}">
+                                <a th:href="@{'/user/addCart?pid='+${product.id}+'&uid='+${user.id}}" class="btn btn-danger w-100">Add To Cart</a>
+                            </th:block>
+                        </th:block>
+
+                        <th:block th:unless="${product.stock > 0}">
+                            <a href="#" class="btn btn-warning w-100 text-white">Out of Stock</a>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

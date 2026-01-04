@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Maven POM file for Spring Boot Shopping Cart application
+ Compatible with JDK 20
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	                    https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Maven model version (always 4.0.0 for modern projects) -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--
+	 Spring Boot parent:
+	 - Manages dependency versions
+	 - Configures default plugins
+	 - Aligns Spring ecosystem versions
+	-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.3</version>
+		<relativePath />
+	</parent>
+
+	<!-- Project coordinates -->
+	<groupId>com.ecom</groupId>
+	<artifactId>Shopping_Cart</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- Metadata -->
+	<name>Shopping_Cart</name>
+	<description>Online Shopping Cart Spring boot mvc Project</description>
+
+	<!--
+	 Project-wide properties
+	 java.version controls:
+	 - compiler target
+	 - bytecode level
+	-->
+	<properties>
+		<java.version>20</java.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- Spring Data JPA: Hibernate + JPA repositories -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+		
+		<!-- mysql connector-->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- Thymeleaf template engine for MVC views -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+		<!-- Spring MVC + embedded Tomcat -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+		<!-- MySQL JDBC driver (runtime only, not needed at compile time) -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.3.0</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Spring Boot DevTools for hot reload during development -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+		<!-- Lombok: reduces boilerplate code (getters/setters, constructors) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.32</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Spring Boot testing support (JUnit, Mockito, Spring Test) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>3.2.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring Security: authentication & authorization -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+		<!-- Spring Mail: email sending support -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+		<!--
+		 AWS Java SDK v1 (legacy):
+		 - Large dependency set
+		 - Still works on JDK 20
+		 - Not recommended for new projects
+		-->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.12.767</version>
+		</dependency>
+
+		<!--
+		 JAXB API (javax namespace):
+		 - Required only if legacy JAXB usage exists
+		 - Not part of JDK 20 by default
+		-->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.2.3</version>
+
+				<!-- FIX for Windows CreateProcess error=206 -->
+				<configuration>
+					<useClasspathJar>true</useClasspathJar>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
