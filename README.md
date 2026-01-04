@@ -104,28 +104,32 @@ https://your_env_name.your_region.elasticbeanstalk.com
 
 ## 🗂️ Project Structure 
 shopping-cart
-├── src/main/java
-│ └── com.ecom
-│ ├── config # Spring Security & app configuration
-│ ├── controller # MVC controllers
-│ ├── model # JPA entities
-│ ├── repository # JPA repositories
-│ ├── service # Service interfaces
-│ ├── service.impl # Business logic implementations
-│ └── util # Utility classes
-│
-├── src/main/resources
-│ ├── static
-│ │ ├── css
-│ │ ├── img
-│ │ └── js
-│ ├── templates
-│ │ ├── admin
-│ │ ├── user
-│ └── application.properties
+├── src
+│   └── main
+│       ├── java
+│       │   └── com.ecom
+│       │       ├── config          # Spring Security & app configuration
+│       │       ├── controller      # MVC controllers
+│       │       ├── model           # JPA entities
+│       │       ├── repository      # JPA repositories
+│       │       ├── service         # Service interfaces
+│       │       ├── service.impl    # Business logic implementations
+│       │       └── util            # Utility classes
+│       │
+│       └── resources
+│           ├── static
+│           │   ├── css
+│           │   ├── img
+│           │   └── js
+│           ├── templates
+│           │   ├── admin
+│           │   ├── user
+│           │   └── auth
+│           └── application.properties
 │
 ├── pom.xml
 └── mvnw
+
 
 ---
 
