@@ -62,23 +62,22 @@ To design and deploy a **secure, scalable e-commerce system** while handling **r
 
 ```bash
 https://localhost:8080
-
----
+```
 
 ```bash
 git clone https:///shopping-cart-with-spring-boot-aws-elasticbeanstalk.git
 cd shopping-cart-with-spring-boot-aws-elasticbeanstalk
 mvn clean package 
 mvn spring-boot:run
+```
 
----
 
 ## ▶️ Build & Run on cloud
 
 ```bash
 https://your_env_name.your_region.elasticbeanstalk.com
+```
 
----
 ## 🧑‍💼 Admin Features
 
 - Admin dashboard (secured routes)
