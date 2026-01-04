@@ -5,6 +5,21 @@ A **production-style full-stack e-commerce web application** built using **Sprin
 This project demonstrates **frontend and backend engineering, security implementation, ORM handling, Thymeleaf MVC flow, and real AWS deployment debugging**.
 
 ---
+## Website Screenshots
+
+### Login Page
+![Login Page](screenshots/login.png "Login Page")
+
+### Home Page
+![Home Page](screenshots/home.png "Home Page")
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png "Admin Dashboard")
+
+### User Profile
+![User Profile](screenshots/user-profile.png "User Profile")
+
+---
 
 ## 🎯 Project Objective
 
