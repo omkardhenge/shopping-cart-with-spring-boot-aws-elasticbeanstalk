@@ -8,16 +8,16 @@ This project demonstrates **frontend and backend engineering, security implement
 ## Website Screenshots
 
 ### Login Page
-![Login Page](screenshots/login.png "Login Page")
+![Login Page](src/screenshot/login.png "Login Page")
 
 ### Home Page
-![Home Page](screenshots/home.png "Home Page")
+![Home Page](src/screenshot/home.png "Home Page")
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png "Admin Dashboard")
+![Admin Dashboard](src/screenshot/admin-dashboard.png "Admin Dashboard")
 
 ### User Profile
-![User Profile](screenshots/user-profile.png "User Profile")
+![User Profile](src/screenshot/user-profile.png "User Profile")
 
 ---
 
