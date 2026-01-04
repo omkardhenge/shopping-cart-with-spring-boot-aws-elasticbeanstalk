@@ -1,9 +1,6 @@
 # 🛒 E-Commerce Web Application delpoyed on Cloud
 ### Spring Boot | AWS Elastic Beanstalk | MySQL RDS
 
-🔗 **Repository:**  
-https://github.com/omkardhenge/shopping-cart-with-spring-boot-aws-elasticbeanstalk 
-
 A **production-style full-stack e-commerce web application** built using **Spring Boot** and deployed on **AWS Elastic Beanstalk**.  
 This project demonstrates **frontend and backend engineering, security implementation, ORM handling, Thymeleaf MVC flow, and real AWS deployment debugging**.
 
